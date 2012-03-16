@@ -1,0 +1,31 @@
+/PURPOSE/
+Various scripts to manipulate genomes and metagenomes on the SHARCNET HPC cluster
+Including BLAST, BOWTIE, clustering (single linkage, MCL), aligning, treeing, etc.
+
+These scripts are sometimes trivial, generally poorly written and often poorly documented
+mea culpa
+
+/AUTHORS/
+Written by Eric Collins based on an original set of scripts by Hugh Merz
+
+
+/EXAMPLES/
+
+A typical workflow might go something like....
+
+1) Identify genomes of interest, e.g. 'Alteromonadales'
+2) make blastlists and taxalists:
+   ./gettaxa.pl Alteromonadales AL
+3) do all-vs-all blasts for Alteromonadales
+   ./blaster4.pl blastlist-Alteromonadales
+4) cluster genomes using single-linkage algorithm at several cutoffs of evalue/length fraction
+   ./cluster.sh AL_110001 taxalist-Alteromonadales-with-plasmids
+5) make gene matrix from cluster list
+   ./genematrix.pl taxalist-Alteromonadales-with-plasmids AL_110001.1e-10_0.7_long_on.cluster_list AL_110001
+6) identify single-copy core genes
+   R CMD BASH singlecopy.R
+7) make concatenated alignments and ML tree from single-copy core genes
+   ./clustercattree.sh AL_110001.1e-10_0.7_long_on.single-copy.csv taxalist-Alteromonadales-with-plasmids AL_110001.1e-10_0.7_long_on.cluster_list AL_110001
+
+TODO:
+lots
