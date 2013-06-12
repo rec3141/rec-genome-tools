@@ -12,7 +12,8 @@ use strict;
 # the BioPerl modules should be installed in a system location
 # but we can just include them from any location they are saved.
 # in the case of the former this line can be commented out.
-use lib "/opt/sharcnet/bioperl/current/lib/perl5";
+#use lib "/opt/sharcnet/bioperl/current/lib/perl5";
+#use lib "/opt/sharcnet/bioperl/1.6.1/lib/perl5";
 
 # use lib "/home/merz/gene_clustering/parser/BioPerl-1.6.0/";
 

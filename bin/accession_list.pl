@@ -21,7 +21,7 @@ print "$file\n";
  while (<IF>) {
    chomp;
    next unless ($_ =~ s/^\>//);
-    if ($_ =~ m/^gi\|\d+\|(?:ref|gb)\|(.+)\|$/) {
+    if ($_ =~ m/^gi\|\d+\|(?:ref|gb)\|(.+)\|/) {
      print OUT "$refseq\t$1\n";
     } else {
      print OUT "$refseq\t$_\n";

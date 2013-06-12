@@ -5,7 +5,8 @@ my %hash;
 my %genomes;
 my %metagenomes;
 
-opendir(DIR, ".");
+my $dir = shift(@ARGV);
+$dir ? opendir(DIR, "$dir") : opendir(DIR, ".");
 my @files = readdir(DIR);
 closedir(DIR);
 

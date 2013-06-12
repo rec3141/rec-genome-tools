@@ -1,6 +1,6 @@
 #!/bin/bash
 
-alldir='/work/rec3141/gene_clustering/ag'
+alldir='/work/rec3141/gene_clustering/all_genomes'
 cd $alldir
 for ftype in contig scaffold
   do
@@ -21,7 +21,7 @@ for ftype in contig scaffold
 	then rm $f1.$ext
       fi 
       tar xOzf $file >> $f1.$ext
-      if [ $ext = 'faa' ]
+      if [ $ext == 'faa' ]
 	then formatdb -i $ext/$f1.$ext
       fi
     done;
